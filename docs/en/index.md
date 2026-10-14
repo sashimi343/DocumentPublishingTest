@@ -2,5 +2,5 @@
 
 A sample library for verifying multilingual documentation publishing.
 
-- [Guide](guide.md)
+- [Guide](guide/index.md)
 - API: <xref:Sample.Core> / <xref:Sample.Extensions>

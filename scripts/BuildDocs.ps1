@@ -21,6 +21,8 @@ foreach ($lang in $langs) {
     }
 }
 
+& (Join-Path $PSScriptRoot 'GenerateToc.ps1')
+
 Remove-Item (Join-Path $root '_site') -Recurse -Force -ErrorAction Ignore
 foreach ($lang in $langs) {
     dotnet docfx (Join-Path $root "docfx/$lang.json") --warningsAsErrors

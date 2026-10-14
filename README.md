@@ -10,6 +10,7 @@
 | `src/Directory.Build.*` | ドキュメント生成 + ビルド後に `SeparateDocs.ps1` で en / ja に分割 |
 | `scripts/SeparateDocs.ps1` | D3Fragments からコピー。`bin/.../<name>.xml` (en) と `bin/.../ja/<name>.xml` を出力 |
 | `scripts/BuildDocs.ps1` | 言語ごとに dll + xml をステージングし DocFX を実行、`_site/<lang>` を生成 |
+| `scripts/GenerateToc.ps1` | `docs/<lang>/<section>/toc.yml` をディレクトリ構成から生成 (ファイル名順、`index.md` 先頭)。`BuildDocs.ps1` から呼ばれる |
 | `docfx/<lang>.json` | 言語別 DocFX 設定 |
 | `docfx/index.html` | サイトルートの言語選択ページ |
 | `docs/<lang>` | 手書きドキュメント。`<xref:UID>` / `@UID` で API へリンク |
@@ -21,7 +22,9 @@ DocFX は csproj を入力にするとソースからコメントを読む (両�
 dll と同名の xml を隣に置くと DocFX はそれを読むので、言語ごとに分割済み xml をステージングして別々にビルドする。
 各言語のビルドは独立しているため、xref は常に同一言語のページへ解決される。
 
-生成物 (`_site/`, `docs/*/api/`, `obj/`) はコミットしない。Actions ではランナー上で生成し、Pages にアーティファクトとしてデプロイする。
+`docs/<lang>/toc.yml` (ナビバー) は手書き。各セクション (`guide/` など) のサイドバー用 `toc.yml` は自動生成。
+
+生成物 (`_site/`, `docs/*/api/`, `docs/*/*/toc.yml`, `obj/`) はコミットしない。Actions ではランナー上で生成し、Pages にアーティファクトとしてデプロイする。
 
 ## ローカルでのビルド
 
