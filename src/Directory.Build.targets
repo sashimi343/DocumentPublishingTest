@@ -1,0 +1,6 @@
+<Project>
+  <!-- D3Fragments と同じ: xml:lang で多言語化した XML ドキュメントを en(既定) / ja に分離する -->
+  <Target Name="SeparateDocs" AfterTargets="Build" Condition="'$(GenerateDocumentationFile)' == 'true'">
+    <Exec Command="pwsh -NoProfile -ExecutionPolicy Bypass -File &quot;$(MSBuildThisFileDirectory)..\scripts\SeparateDocs.ps1&quot; $(AssemblyName) &quot;$(OutDir.TrimEnd('\'))&quot; &quot;$(IntermediateOutputPath)SeparateDocs&quot;" />
+  </Target>
+</Project>

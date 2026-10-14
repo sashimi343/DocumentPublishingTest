@@ -1,0 +1,14 @@
+{
+  "metadata": [
+    {
+      "src": [{ "src": "../obj/docs/staging/en", "files": ["*.dll"] }],
+      "dest": "../docs/en/api"
+    }
+  ],
+  "build": {
+    "content": [{ "src": "../docs/en", "files": ["**/*.md", "**/*.yml"] }],
+    "output": "../_site/en",
+    "template": ["default", "modern"],
+    "globalMetadata": { "_appTitle": "DocumentPublishingTest (en)", "_lang": "en", "_enableSearch": true }
+  }
+}

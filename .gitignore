@@ -480,3 +480,8 @@ $RECYCLE.BIN/
 
 # Vim temporary swap files
 *.swp
+
+# DocFX output
+_site/
+# DocFX generated API metadata
+docs/*/api/
