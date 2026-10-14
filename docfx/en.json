@@ -7,8 +7,17 @@
   ],
   "build": {
     "content": [{ "src": "../docs/en", "files": ["**/*.md", "**/*.yml"] }],
+    "resource": [{ "files": ["images/**"] }],
     "output": "../_site/en",
     "template": ["default", "modern"],
-    "globalMetadata": { "_appTitle": "DocumentPublishingTest (en)", "_lang": "en", "_enableSearch": true }
+    "globalMetadata": {
+      "_appTitle": "DocumentPublishingTest (en)",
+      "_appName": "DocumentPublishingTest",
+      "_appLogoPath": "images/logo.svg",
+      "_appFooter": "Copyright &copy; 2026 Kohei Kakimoto",
+      "_lang": "en",
+      "_enableSearch": true,
+      "_disableContribution": true
+    }
   }
 }
